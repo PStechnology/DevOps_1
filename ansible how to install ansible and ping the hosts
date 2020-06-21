@@ -1,0 +1,49 @@
+launch redhat EC2 instance
+
+
+yum install pip3
+sudo dnf install python3-pip
+cd /bin/
+ln -s python /etc/alternatives/python3
+mv python3 python (we need to rename python3 with python as ansible fecth from python not python3)
+sudo dnf install python3-pip
+pip3 install ansible
+
+[root@ip-172-31-39-122 ec2-user]# pip3 install ansible
+WARNING: Running pip install with root privileges is generally not a good idea. Try `pip3 install --user` instead.
+Collecting ansible
+  Downloading https://files.pythonhosted.org/packages/00/5d/e10b83e0e6056dbd5b4809b451a191395175a57e3175ce04e35d9c5fc2a0/ansible-2.9.9.tar.gz (14.2MB)
+    100% |████████████████████████████████| 14.2MB 92kB/s
+Requirement already satisfied: jinja2 in /usr/lib/python3.6/site-packages (from ansible)
+Requirement already satisfied: PyYAML in /usr/lib64/python3.6/site-packages (from ansible)
+Requirement already satisfied: cryptography in /usr/lib64/python3.6/site-packages (from ansible)
+Requirement already satisfied: MarkupSafe>=0.23 in /usr/lib64/python3.6/site-packages (from jinja2->ansible)
+Requirement already satisfied: idna>=2.1 in /usr/lib/python3.6/site-packages (from cryptography->ansible)
+Requirement already satisfied: asn1crypto>=0.21.0 in /usr/lib/python3.6/site-packages (from cryptography->ansible)
+Requirement already satisfied: six>=1.4.1 in /usr/lib/python3.6/site-packages (from cryptography->ansible)
+Requirement already satisfied: cffi!=1.11.3,>=1.7 in /usr/lib64/python3.6/site-packages (from cryptography->ansible)
+Requirement already satisfied: pycparser in /usr/lib/python3.6/site-packages (from cffi!=1.11.3,>=1.7->cryptography->ansible)
+Installing collected packages: ansible
+  Running setup.py install for ansible ... done
+Successfully installed ansible-2.9.9
+[root@ip-172-31-39-122 ec2-user]#
+
+
+########################## TO SSH TO HOST ###################################
+1) go to .ssh -> cd .ssh
+2) command to generate ssh key -> ssh-keygen
+3) just enter 3 time ssh key file is created
+4) cat id_rsa.pub
+5) copu the code and paste in the host file that is cd .ssh  in authorized_keys 
+
+Ansible playbook
+playbook in written in yaml or yml
+location - /opt/playbooks/
+
+#sudo vi nginx-install.yml
+
+
+
+
+
+
